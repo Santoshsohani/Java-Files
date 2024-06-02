@@ -12,7 +12,7 @@ Java is object oriented programming language which means, complex problems are d
 
 - Class in java is a blueprint for an object, class contains all the necessary features and attributes required.
 - Before creating a object, one should create a class, From that particular class an instance is created called as Object.
-- Example : Blueprint of a house can be termed as class, which contains all the necessary dimensions, floor planning etc. From that blueprint a object can be created i.e House
+- Example : Blueprint of a house can be termed as class, which contains all the necessary dimensions, floor planning etc. From that blueprint a object can be created i.e. House
 - using a single class multiple objects can be created.
 
 ```Java
@@ -609,4 +609,111 @@ class Main extends FinalClass {
 	objectName instanceof className
 ```
 - During inheritance the instance of operator returns true for both the parent class and child class.
+
+## Super keyword in java
+
+- Super keyword in java is associated with inheritance, it is used within the sub-class to access the entities of super class, The entities are variables, methods and constructor.
+- There are three main use cases of super keyword
+	- Access the overridden methods of super class.
+	- Access the Variables of super class within the subclass having same name.
+	- call constructor of super class in sub class.
+
+### 1. Access the overridden methods of super class
+```java
+class Animal{
+	void makeNoise(){
+		System.out.println("Animal Makes noise");
+	}
+}
+
+class Dog extends Animal{
+	void makeNoise(){
+		System.out.println("Dog barks");
+	}
+	super.makeNoise();
+}
+
+public static void main(String[] args){
+	Dog dog1 = new Dog();
+	
+}
+
+// Output
+// Dog barks
+// Animal makes noise
+```
+
+### 2.  Access the variables of superclass having the same name.
+
+```Java
+class Animal{
+	public String type = "mammal";
+	void makeNoise(){
+		System.out.println("Animal Makes noise");
+	}
+}
+
+class Dog extends Animal{
+    
+    Dog(){
+        System.out.println(super.type);
+    }
+    
+	void makeNoise(){
+		System.out.println(super.type);
+	}
+	
+}
+
+public class Main{
+	public static void main(String[] args){
+	Dog dog1 = new Dog();
+	dog1.makeNoise();
+}
+}
+```
+
+
+### Call the constructor of the super class.
+
+```Java
+class Animal{
+
+	Animal(){
+		System.out.println("This is a animal");
+	}
+
+	void makeNoise(){
+		System.out.println("Animal Makes noise");
+	}
+}
+
+class Dog extends Animal{
+
+	Dog(){
+		super();
+	}
+
+	void makeNoise(){
+		System.out.println("Dog barks");	
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+	Dog dog1 = new Dog();	
+	dog1.makeNoise();
+	}
+}
+```
+
+## Abstract method and Abstract class in java
+
+- Abstract methods are those methods in java, which cannot be instantiated.
+- No objects can be created using an abstract class.
+- abstract keyword is used to declare a abstract class and abstract method.
+- abstract class can contain both abstract methods and regular methods
+- if a class contains abstract method, then class should be declared as abstract as well.
+- abstract method doesn't have its body. 
+- Abstract class can be inherited, objects can be created from the sub-class.
 
