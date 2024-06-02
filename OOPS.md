@@ -716,4 +716,23 @@ public class Main{
 - if a class contains abstract method, then class should be declared as abstract as well.
 - abstract method doesn't have its body. 
 - Abstract class can be inherited, objects can be created from the sub-class.
+- The body of the abstract method should be declared inside the sub-class if not declared it throws an error.
+- The sub class is also called as concrete class.
+
+```java
+abstract class Car{
+    public abstract void features();
+
+    public void drive(){
+        System.out.println("The car is moving forward");
+    }
+}
+
+class Fortuner extends Car{
+    @Override
+    public void features() {
+        System.out.println("Fortuner features: All-wheel drive, luxury features");
+    }
+}
+```
 
