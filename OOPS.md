@@ -466,7 +466,7 @@ class Vehicle{
 	}
 }
 
-class Car extend Vehicle{
+class Car extends Vehicle{
 	public void gears(){
 		System.out.println("Car has 5 gears");
 	}
@@ -735,4 +735,104 @@ class Fortuner extends Car{
     }
 }
 ```
+
+
+## Interfaces in Java
+
+- Interfaces in java is concept where all abstract methods are present, It is nothing but a blueprint what methods are needed inside a particular class.
+- Here the definition of the methods is only given.
+- here we use implements keyword for a class to follow a interface.
+
+```java
+interface Performer{
+	public void introduce();
+	public void perform();
+}
+
+
+class Singer implements Performer{
+	public void introduce(){
+		System.out.println("Singer is introducing");
+	}
+	public void perform(){
+		System.out.println("Singer is performing");
+	}
+}
+```
+
+- A class can implement multiple interfaces as well.
+```Java
+interface Performer{
+	public void introduce();
+	public void perform();
+}
+interface Register {
+	public void registerUser();
+}
+
+class Singer implements Performer,Register{
+	public void introduce(){
+		System.out.println("Singer is introducing");
+	}
+	public void perform(){
+		System.out.println("Singer is performing");
+	}
+	public void registerUser(){
+		System.out.println("Performer registers...");
+	}
+}
+```
+
+- Interface can be also be extended.
+```java
+	interface A{
+		// Methods
+	}
+	interface B{
+		// Methods
+	}
+
+	interface C extends A,B{
+		// Methods of A,B & C
+	}
+```
+
+### Advantages of using Interfaces
+
+- Code reusability and standardization.
+- Multilevel inheritance.
+- Abstraction.
+
+### Default Methods in interfaces
+
+- Default methods were introduced in Java 8
+- we must use default keyword to implement a default method
+- Suppose there is an interface which is followed by multiple classes, and if we want to add one more method to the interface, then we must add the method definition in all the classes as well, Hence to overcome this approach default methods were introduced,
+- Another situation could be that the method definition would be same for all the classes.
+
+```Java
+interface Animal {
+    void sound();
+
+    default void sleep() {
+        System.out.println("The animal is sleeping");
+    }
+}
+
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Bark");
+    }
+}
+
+class Cat implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Meow");
+    }
+}
+```
+
+## Types of inheritance in JAVA
 
