@@ -836,3 +836,91 @@ class Cat implements Animal {
 
 ## Types of inheritance in JAVA
 
+- Inheritance is a property where a entity inherits all the properties and behavior from another class, Here the inherited class is called as sub-class and the class where sub-class inherits properties and behavior is called as super-class
+- There are mainly 4 types of inheritance:
+	- Single inheritance
+	- Multilevel inheritance 
+	- Multiple inheritance
+	- Hierarchical inheritance
+
+### Single inheritance
+
+- Single inheritance is the basic feature of inheritance where a sub-class inherits properties and behavior from super-class.
+```Java
+class Device{
+	private void turnOn(){
+		System.out.println("Device Turned on");
+	}
+}
+
+class Phone extends Device {
+	private void makePhoneCall(){
+		System.out.println("Making a Phone call");
+	}
+}
+```
+
+## Polymorphism
+
+- Here by the name we can say that poly means many, whereas morphs means forms Hence polymorphism refers to an entity which is present in many forms.
+- Here entity could be a method, object or a operator.
+- Polymorphism can be achieved mainly in 3 forms
+	- Method overriding
+	- Method overloading
+	- Operator overloading
+
+### Method overriding polymorphism
+
+```java
+class Polygon{
+	public void render(){
+		System.out.println("Rendering a Polugon");
+	}
+}
+class Square extend Polygon{
+	public void render(){
+		System.out.println("Rendering a Square");
+	}
+}
+
+public class Execution{
+	public static void main(String[] args){
+		Square sq = new Square();
+		sq.render();
+	}
+}
+```
+
+- Here the method render is overridden in the Square class. When the render() method is called by the instance of Square class, the method present in the Square class gets called and executed.
+- Here the object which is referring to render() method gets called during the run-time hence it is called as run-time polymorphism or also called as dynamic polymorphism.
+
+### Method overloading polymorphism
+
+- Method overloading is a concept where a multiple methods inside a same class have same name but differ in number of parameters or data type of argument is called as method overloading.
+```java
+class Example {
+    void display(int a) {
+        System.out.println("Argument: " + a);
+    }
+
+    void display(String a) {
+        System.out.println("Argument: " + a);
+    }
+
+    public static void main(String[] args) {
+        Example obj = new Example();
+        obj.display(10);  // Calls display(int a)
+        obj.display("Hello");  // Calls display(String a)
+    }
+}
+
+```
+- Here what method to call is being known during the compile time, hence it is called as compile time polymorphism, also known as static polymorphism.
+
+### Operator overloading 
+
+- Polymorphism can be achieved using operator overriding as well, for example + operator behaves differently under different circumstances.
+- 2 + 2 = 4 -- Addition
+- "Java" + " Programming" = "Java Programming" -- Concatenation
+
+
